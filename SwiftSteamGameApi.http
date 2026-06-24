@@ -1,0 +1,4 @@
+@SwiftSteamGameApi_HostAddress = http://localhost:5117
+
+GET {{SwiftSteamGameApi_HostAddress}}/health
+Accept: application/json
