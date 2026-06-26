@@ -8,6 +8,13 @@ namespace SwiftSteamGameApi.Models;
 /// </summary>
 public class GameDetails
 {
+    [Key]
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public Guid GameRecordId { get; set; }
+
+    public GameRecord? GameRecord { get; set; }
+
     [Required]
     [MaxLength(300)]
     public required string Title { get; set; }
@@ -21,7 +28,7 @@ public class GameDetails
     [Range(1970, 2100)]
     public int? YearOfRelease { get; set; }
 
-    public List<string> Genres { get; set; } = [];
+    public List<GameGenre> Genres { get; set; } = [];
 
     public GamePlatform Platform { get; set; } = GamePlatform.Steam;
 

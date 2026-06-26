@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using SwiftSteamGameApi.Models;
 
 namespace SwiftSteamGameApi.Models.Related;
 
@@ -7,7 +8,12 @@ namespace SwiftSteamGameApi.Models.Related;
 /// </summary>
 public class GameAchievement
 {
-    public Guid Id { get; set; }
+    [Key]
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public Guid GameRecordId { get; set; }
+
+    public GameRecord? GameRecord { get; set; }
 
     [Required]
     [MaxLength(300)]

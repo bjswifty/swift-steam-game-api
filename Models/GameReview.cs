@@ -8,6 +8,13 @@ namespace SwiftSteamGameApi.Models;
 /// </summary>
 public class GameReview
 {
+    [Key]
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public Guid GameRecordId { get; set; }
+
+    public GameRecord? GameRecord { get; set; }
+
     [Range(1.0, 10.0)]
     public decimal? PersonalRating { get; set; }
 

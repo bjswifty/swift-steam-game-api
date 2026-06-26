@@ -7,6 +7,13 @@ namespace SwiftSteamGameApi.Models;
 /// </summary>
 public class PersonalTracking
 {
+    [Key]
+    public Guid Id { get; set; } = Guid.NewGuid();
+
+    public Guid GameRecordId { get; set; }
+
+    public GameRecord? GameRecord { get; set; }
+
     public bool IsOwned { get; set; }
 
     public bool HasPlayed { get; set; }

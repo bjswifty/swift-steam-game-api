@@ -1,12 +1,11 @@
 using System.ComponentModel.DataAnnotations;
-using SwiftSteamGameApi.Models;
 
-namespace SwiftSteamGameApi.Models.Related;
+namespace SwiftSteamGameApi.Models;
 
 /// <summary>
-/// User-defined category for grouping games beyond genre tags.
+/// Table-backed organization tag linked to a game record.
 /// </summary>
-public class GameCategory
+public class GameTag
 {
     [Key]
     public Guid Id { get; set; } = Guid.NewGuid();

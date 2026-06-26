@@ -10,7 +10,8 @@ namespace SwiftSteamGameApi.Models;
 /// </summary>
 public class GameRecord
 {
-    public Guid Id { get; set; }
+    [Key]
+    public Guid Id { get; set; } = Guid.NewGuid();
 
     [Required]
     public GameDetails Details { get; set; } = new() { Title = string.Empty };
@@ -22,20 +23,20 @@ public class GameRecord
     /// </summary>
     public GameReview? Review { get; set; }
 
-    public List<string> Tags { get; set; } = [];
+    public List<GameTag> Tags { get; set; } = [];
 
     public GameStatus Status { get; set; } = GameStatus.NotStarted;
 
     public PriorityLevel Priority { get; set; } = PriorityLevel.None;
 
-    public DateTimeOffset CreatedAt { get; set; }
+    public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.UtcNow;
 
-    public DateTimeOffset UpdatedAt { get; set; }
+    public DateTimeOffset UpdatedAt { get; set; } = DateTimeOffset.UtcNow;
 
-    // Future relationship collections — optional until populated by services or persistence layer.
-    public List<GameScreenshot>? Screenshots { get; set; }
+    // Future relationship collections -- optional until populated by services or persistence layer.
+    public List<GameScreenshot> Screenshots { get; set; } = [];
 
-    public List<GameAchievement>? Achievements { get; set; }
+    public List<GameAchievement> Achievements { get; set; } = [];
 
-    public List<GameCategory>? Categories { get; set; }
+    public List<GameCategory> Categories { get; set; } = [];
 }
