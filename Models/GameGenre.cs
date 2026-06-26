@@ -14,6 +14,10 @@ public class GameGenre
 
     public GameRecord? GameRecord { get; set; }
 
+    public Guid GameDetailsId { get; set; }
+
+    public GameDetails? GameDetails { get; set; }
+
     [Required]
     [MaxLength(100)]
     public required string Name { get; set; }

@@ -1,6 +1,19 @@
+using Microsoft.EntityFrameworkCore;
+using SwiftSteamGameApi.Data;
+using SwiftSteamGameApi.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddDbContext<GameLibraryDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("GameLibraryDatabase")));
+builder.Services.AddScoped<IGameRecordService, GameRecordService>();
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+    });
 builder.Services.AddHealthChecks();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -2,3 +2,69 @@
 
 GET {{SwiftSteamGameApi_HostAddress}}/health
 Accept: application/json
+
+###
+
+POST {{SwiftSteamGameApi_HostAddress}}/api/gamerecords
+Content-Type: application/json
+
+{
+  "details": {
+    "title": "Hades",
+    "developer": "Supergiant Games",
+    "publisher": "Supergiant Games",
+    "yearOfRelease": 2020,
+    "genres": [
+      { "name": "Roguelike" },
+      { "name": "Action" }
+    ],
+    "platform": "Steam",
+    "description": "Battle out of the Underworld in this rogue-like dungeon crawler.",
+    "externalId": "1145360"
+  },
+  "tracking": {
+    "isOwned": true,
+    "hasPlayed": true,
+    "isCompleted": true,
+    "isInBacklog": false,
+    "wantsReplay": true,
+    "dateStarted": "2024-01-15",
+    "dateCompleted": "2024-02-20",
+    "hoursPlayed": 87.5
+  },
+  "review": {
+    "personalRating": 9.5,
+    "reviewTitle": "Outstanding roguelike",
+    "reviewBody": "Tight combat, great story, and incredible replay value.",
+    "pros": "Combat, narrative, art direction",
+    "cons": "Can be punishing early on",
+    "favoriteMoment": "Final escape attempt",
+    "difficultyRating": 7,
+    "replayValue": 10
+  },
+  "tags": [
+    { "name": "indie" },
+    { "name": "favorite" }
+  ],
+  "status": "Completed",
+  "priority": "Low",
+  "screenshots": [
+    {
+      "url": "https://example.com/hades-screenshot.jpg",
+      "caption": "Boss fight",
+      "capturedAt": "2024-02-01T18:30:00Z"
+    }
+  ],
+  "achievements": [
+    {
+      "name": "Blood Bound",
+      "description": "Complete the main escape quest.",
+      "isUnlocked": true,
+      "unlockedAt": "2024-02-20T12:00:00Z",
+      "externalId": "ACH_BLOOD_BOUND"
+    }
+  ],
+  "categories": [
+    { "name": "All-Time Greats" }
+  ]
+}
